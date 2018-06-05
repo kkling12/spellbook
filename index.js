@@ -10,9 +10,9 @@ button.addEventListener('click', changeHeading)
 
 const button2 = document.querySelector('#Submit')
 function inputedHeading(){
-  const newName = document.querySelector('#hd2')
+  const newName = document.querySelector('#spells')
   const inputedValue = document.querySelector("#newText").value
-  newName.textContent = inputedValue
+  newName.innerHTML +=  '<p>' + inputedValue + '</p>'
 }
 
 function keyPress(){
