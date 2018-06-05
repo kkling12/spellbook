@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    background-color: rgb(150, 111, 155);
+    color: rgb(92, 0, 76);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+button {
+    background-color: rgb(92, 0, 76);
+    color: rgb(255, 255, 255);
+
+}
+
+#Submit {
+    background-color: rgb(92, 0, 76);
+    color: rgb(255, 255, 255);
+}
