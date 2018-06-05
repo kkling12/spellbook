@@ -15,4 +15,9 @@ function inputedHeading(){
   newName.textContent = inputedValue
 }
 
+function keyPress(){
+  if(event.keycode == 13) inputedHeading
+}
+
 button2.addEventListener('click', inputedHeading)
+button2.addEventListener('keydown', keyPress(event))
