@@ -39,32 +39,40 @@ function dynamicDropdown(ev) {
 
   //Create the new dropdown menu
   var whereToPut = document.getElementById('myDiv');
-  var newDropdown = document.createElement('select');
+  const newDropdown = document.createElement('select');
   newDropdown.setAttribute('id',"newDropdownMenu");
+  let arrayOfNodes = []
   whereToPut.appendChild(newDropdown);
 
-  
-
   let textField = "";
-  if (mainMenu.value == "sadPotions") {
-    textField = document.querySelector("#sadPotions").textContent
+
+  switch (mainMenu.value) {
+    case "sadPotions":
+
+    textField = document.querySelector("#sadPotions").textContent;
     var optionPotion = document.createElement("option");
     optionPotion.text = "Potions";
-    newDropdown.appendChild(optionPotion, newDropdown.options[null]);
+    arrayOfNodes.push(optionPotion);
+    //newDropdown.appendChild(optionPotion, newDropdown.options[null]);
 
     var optionDeath = document.createElement("option");
     optionDeath.text = "Death";
-    newDropdown.appendChild(optionDeath, newDropdown.options[null]);
+    arrayOfNodes.push(optionDeath);
+    // newDropdown.appendChild(optionDeath, newDropdown.options[null]);
     
     var optionLove = document.createElement("option");
     optionLove.text = "Love";
-    newDropdown.appendChild(optionLove, newDropdown.options[null]);
+    arrayOfNodes.push(optionLove);
+    //newDropdown.appendChild(optionLove, newDropdown.options[null]);
     
     var optionLuck = document.createElement("option");
     optionLuck.text = "Luck";
-    newDropdown.appendChild(optionLuck, newDropdown.options[null]);
+    arrayOfNodes.push(optionLuck)
+    //newDropdown.appendChild(optionLuck, newDropdown.options[null]);
 
-} else if (mainMenu.value == "fantasticB") { 
+  
+  break;
+  case "fantasticB": 
     textField = document.querySelector("#fantasticB").textContent
     var optionBeastSpells = document.createElement("option");
     optionBeastSpells.text = "Spells to Understand Magical Beasts";
@@ -82,32 +90,42 @@ function dynamicDropdown(ev) {
     optionRideThem.text = "Care to take a Ride?";
     newDropdown.add(optionRideThem, newDropdown.options[null]);
 
-}
-else if (mainMenu.value == "wbE") { 
-  textField = document.querySelector("#wbE").textContent;
-  var optionWhat = document.createElement("option");
-  optionWhat.text = "A Spell from the Worst Book Ever";
-  newDropdown.add(optionWhat, newDropdown.options[null]);
-
-  var optionRockSize = document.createElement("option");
-  optionRockSize.text = "Do you need a rock to get bigger?";
-  newDropdown.add(optionRockSize, newDropdown.options[null]);
   
-  var optionSpikey = document.createElement("option");
-  optionSpikey.text = "I make chairs Spikey!";
-  newDropdown.add(optionSpikey, newDropdown.options[null]);
-  
-  var optionPoisonFood = document.createElement("option");
-  optionPoisonFood.text = "I poison your food, but never an Enemy's!";
-  newDropdown.add(optionPoisonFood, newDropdown.options[null]);
+  break;
+  case "wbE":
+    textField = document.querySelector("#wbE").textContent;
+    var optionWhat = document.createElement("option");
+    optionWhat.text = "A Spell from the Worst Book Ever";
+    newDropdown.add(optionWhat, newDropdown.options[null]);
 
-}
+    var optionRockSize = document.createElement("option");
+    optionRockSize.text = "Do you need a rock to get bigger?";
+    newDropdown.add(optionRockSize, newDropdown.options[null]);
+    
+    var optionSpikey = document.createElement("option");
+    optionSpikey.text = "I make chairs Spikey!";
+    newDropdown.add(optionSpikey, newDropdown.options[null]);
+    
+    var optionPoisonFood = document.createElement("option");
+    optionPoisonFood.text = "I poison your food, but never an Enemy's!";
+    newDropdown.add(optionPoisonFood, newDropdown.options[null]);
+    break;
+    default: arrayOfNodes.push(document.createTextNode("HEY"));
+             arrayOfNodes.push(document.createTextNode("HEY"));
+             arrayOfNodes.push(document.createTextNode("HEY"));
+             arrayOfNodes.push(document.createTextNode("HEY"));
+  }
 
+  let textFieldTwo;
 
+  for(x in arrayOfNodes){
+    newDropDown.appendChild(x);
+  }
 
-
-  let textFieldTwo = document.querySelector("#myDiv");
-
+  newDropdown.addEventListener('change', function(){
+    let selected = document.querySelector('#myDiv select');
+    textFieldTwo = selected.options[selected.selectedIndex].textContent;
+  })
 
 
   const spells = document.querySelector("#spells")
@@ -122,6 +140,9 @@ else if (mainMenu.value == "wbE") {
 
   //created = 1;
 }
+
+
+
 function removeDrop() {
   var d = document.getElementById('myDiv');
 
@@ -131,9 +152,6 @@ function removeDrop() {
   created = 0;
 }
 
-function secondChoice(){
-  
-}
 
 const book = document.querySelector('select')
 book.addEventListener('change', dynamicDropdown)
