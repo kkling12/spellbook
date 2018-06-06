@@ -103,7 +103,11 @@ else if (mainMenu.value == "wbE") {
 
 }
 
-  let textFieldTwo = document.querySelector("#myDiv").textContent;
+
+
+
+  let textFieldTwo = document.querySelector("#myDiv");
+
 
 
   const spells = document.querySelector("#spells")
@@ -115,6 +119,7 @@ else if (mainMenu.value == "wbE") {
   created = 1;
   
 
+
   //created = 1;
 }
 function removeDrop() {
@@ -124,6 +129,10 @@ function removeDrop() {
 
   d.removeChild(oldmenu);
   created = 0;
+}
+
+function secondChoice(){
+  
 }
 
 const book = document.querySelector('select')
