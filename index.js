@@ -8,16 +8,19 @@ function changeHeading() {
 
 button.addEventListener('click', changeHeading)
 
-const button2 = document.querySelector('#Submit')
-function inputedHeading(){
-  const newName = document.querySelector('#spells')
-  const inputedValue = document.querySelector("#newText").value
-  newName.innerHTML +=  '<p>' + inputedValue + '</p>'
+const form = document.querySelector('form')
+
+
+const inputedHeading = function(ev){
+  ev.preventDefault()
+  const f = ev.target
+  const inputedValue = f.newText.value
+
+  document
+    .querySelector('#spells')
+    .innerHTML +=  '<p>' + inputedValue + '</p>'
+
+  f.reset()
 }
 
-function keyPress(){
-  if(event.keycode == 13) inputedHeading
-}
-
-button2.addEventListener('click', inputedHeading)
-button2.addEventListener('keydown', keyPress(event))
+form.addEventListener('submit', inputedHeading)
