@@ -1,12 +1,12 @@
 
-const button = document.querySelector('button')
+// const button = document.querySelector('button')
 
-function changeHeading() {
-  const heading = document.querySelector('#hd2')
-  heading.textContent = 'New Spellbook'
-}
+// function changeHeading() {
+//   const heading = document.querySelector('#hd2')
+//   heading.textContent = 'New Spellbook'
+// }
 
-button.addEventListener('click', changeHeading)
+// button.addEventListener('click', changeHeading)
 
 const form = document.querySelector('form')
 

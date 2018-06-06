@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Your Spellbook Emporium</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-   
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Spellbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+
 </head>
 <body>
-    <h1>Spellbook</h1>
-    <h1 id = "hd2">A Sad Book of Potions</h1>
-    <h1>Fantastic Beasts and Where to Find Them</h1>
-    <h1>Worst Book Ever</h1>
-    <button>Change Text</button>
-    <div id="spells"></div>
-   <br>
+
+    <img src="quill.png" id="quill" alt="">
+
+    <h1>Your Entire List of Needed Spellbooks</h1>
+    <h2>A Sad Book of Potions</h2>
+    <h2>Fantastic Beasts and Where to Find Them</h2>
+    <h2>Worst Book Ever</h2>
+   
+    <h3>Which Spell Do You Want To Learn?:</h3><br>
     <form>
-        New Spellbook Name:<br>
-        <br>
-        <input 
+        <div>
+            
+            <input 
             type="text" 
             name ="NewSpellbook" 
             id = "newText" 
             placeholder="Enter Spellbook Name"
             autofocus
-        ><br>
-        <br>
-        <button type = "submit">Submit</button>
+            >
+        <button type="submit">Add</button>
+        </div>
     </form>
-    
+        
+    <main>
+        <ul id="spells"></ul>
+    </main>
+
     <script src="index.js"></script>
 </body>
 </html>
