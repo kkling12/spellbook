@@ -20,15 +20,24 @@
     <h3>Which Spell Do You Want To Learn?:</h3><br>
     <form>
         <div>
+            <select id = "mainMenu" onchange = "dynamicDropdown">
+                <option value="title">Pick your Book</option>
+                <option value="sadPotions" id = "sadPotions">A Sad Book of Potions</option>
+                <option value="fantasticB" id = "fantasticB">Fantastic Beasts and Where to Find Them</option>
+                <option value="wbE" id = "wbE">Worst Book Ever</option>
+            </select>
+
+            <div id="myDiv"></div>
+            <br><br>
             
-            <input 
+            <!-- <input 
             type="text" 
             name ="NewSpellbook" 
             id = "newText" 
-            placeholder="Enter Spellbook Name"
+            placeholder="Enter Spell Name"
             autofocus
             >
-        <button type="submit">Add</button>
+        <button type="submit">Add</button> -->
         </div>
     </form>
         
