@@ -6,50 +6,37 @@
   <title>Spellbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-
 </head>
 <body>
+  <img src="skull.png" id="skull" alt="">
+  <img src="quill.png" id="quill" alt="">
 
-    <img src="quill.png" id="quill" alt="">
+  <h1>Spellbook</h1>
 
-    <h1>Your Entire List of Needed Spellbooks</h1>
-    <h2>A Sad Book of Potions</h2>
-    <h2>Fantastic Beasts and Where to Find Them</h2>
-    <h2>Worst Book Ever</h2>
-   
-    <h3>Which Spell Do You Want To Learn?:</h3><br>
-    <form>
-        <div>
-            <select id = "mainMenu" onchange = "dynamicDropdown">
-                <option value="title">Pick your Book</option>
-                <option value="sadPotions" id = "sadPotions">A Sad Book of Potions</option>
-                <option value="fantasticB" id = "fantasticB">Fantastic Beasts and Where to Find Them</option>
-                <option value="wbE" id = "wbE">Worst Book Ever</option>
-            </select>
+  <form>
+    <div>
+      <input
+        type="text"
+        name="spellName"
+        placeholder="Enter a spell name"
+        autofocus
+      >
+      <input
+        type="number"
+        name="level"
+        placeholder="Level"
+        class="small"
+        min="1"
+        max="20"
+      >
+      <button type="submit">Add</button>
+    </div>
+  </form>
 
-            <div id="myDiv"></div>
-            <br><br>
-            
+  <main>
+    <ul id="spells"></ul>
+  </main>
 
-            <input 
-                type = "submit"
-                value = "submit"
-            >
-            <!-- <input 
-            type="text" 
-            name ="NewSpellbook" 
-            id = "newText" 
-            placeholder="Enter Spell Name"
-            autofocus
-            >
-        <button type="submit">Add</button> -->
-        </div>
-    </form>
-        
-    <main>
-        <ul id="spells"></ul>
-    </main>
-
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

@@ -1,158 +1,60 @@
 
-// const button = document.querySelector('button')
+let spellArray = []
 
-// function changeHeading() {
-//   const heading = document.querySelector('#hd2')
-//   heading.textContent = 'New Spellbook'
-// }
+const app = {
+  init: function() {
+    const form = document.querySelector('form')
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault()
+      this.handleSubmit(ev)
+      
+      console.log(spellArray)
+    })
+  },
 
-// button.addEventListener('click', changeHeading)
+  renderProperty: function(name, value) {
+    const el = document.createElement('span')
+    el.classList.add(name)
+    el.textContent = value
+    el.setAttribute('title', value)
+    return el
+  },
 
-// const form = document.querySelector('form')
+  renderItem: function(spell) {
+    // ['name', 'level']
+    const properties = Object.keys(spell)
 
+    // collect an array of <span> elements
+    const childElements = properties.map((prop) => {
+      return this.renderProperty(prop, spell[prop])
+    })
 
-// const inputedHeading = function(ev){
-//   ev.preventDefault()
-//   const f = ev.target
-//   const inputedValue = f.newText.value
+    const item = document.createElement('li')
+    item.classList.add('spell')
 
-//   document
-//     .querySelector('#spells')
-//     .innerHTML +=  '<p>' + inputedValue + '</p>'
+    // append each <span> to the <li>
+    childElements.forEach(function(el) {
+      item.appendChild(el)
+    })
+    spellArray.push(spell)
+    return item
+  },
 
-//   f.reset()
-// }
+  handleSubmit: function(ev) {
+    const f = ev.target
 
-// form.addEventListener('submit', inputedHeading)
+    const spell = {
+      name: f.spellName.value,
+      level: f.level.value,
+    }
 
+    const item = this.renderItem(spell)
 
-var created = 0;
-function dynamicDropdown(ev) {
-  ev.preventDefault()
-  
-  if (created == 1) {
-    removeDrop();
-  }
+    const list = document.querySelector('#spells')
+    list.appendChild(item)
 
-  // Call mainMenu the main dropdown menu
-  var mainMenu = document.getElementById('mainMenu');
-
-  //Create the new dropdown menu
-  var whereToPut = document.getElementById('myDiv');
-  const newDropdown = document.createElement('select');
-  newDropdown.setAttribute('id',"newDropdownMenu");
-  let arrayOfNodes = []
-  whereToPut.appendChild(newDropdown);
-
-  let textField = "";
-
-  switch (mainMenu.value) {
-    case "sadPotions":
-
-    textField = document.querySelector("#sadPotions").textContent;
-    var optionPotion = document.createElement("option");
-    optionPotion.text = "Potions";
-    arrayOfNodes.push(optionPotion);
-    //newDropdown.appendChild(optionPotion, newDropdown.options[null]);
-
-    var optionDeath = document.createElement("option");
-    optionDeath.text = "Death";
-    arrayOfNodes.push(optionDeath);
-    // newDropdown.appendChild(optionDeath, newDropdown.options[null]);
-    
-    var optionLove = document.createElement("option");
-    optionLove.text = "Love";
-    arrayOfNodes.push(optionLove);
-    //newDropdown.appendChild(optionLove, newDropdown.options[null]);
-    
-    var optionLuck = document.createElement("option");
-    optionLuck.text = "Luck";
-    arrayOfNodes.push(optionLuck)
-    //newDropdown.appendChild(optionLuck, newDropdown.options[null]);
-
-  
-  break;
-  case "fantasticB": 
-    textField = document.querySelector("#fantasticB").textContent
-    var optionBeastSpells = document.createElement("option");
-    optionBeastSpells.text = "Spells to Understand Magical Beasts";
-    newDropdown.add(optionBeastSpells, newDropdown.options[null]);
-
-    var optionMagicFood = document.createElement("option");
-    optionMagicFood.text = "Feed those Beasties";
-    newDropdown.add(optionMagicFood, newDropdown.options[null]);
-    
-    var optionMakeFluffy = document.createElement("option");
-    optionMakeFluffy.text = "They Need to be Fluffy Don't They?";
-    newDropdown.add(optionMakeFluffy, newDropdown.options[null]);
-    
-    var optionRideThem = document.createElement("option");
-    optionRideThem.text = "Care to take a Ride?";
-    newDropdown.add(optionRideThem, newDropdown.options[null]);
-
-  
-  break;
-  case "wbE":
-    textField = document.querySelector("#wbE").textContent;
-    var optionWhat = document.createElement("option");
-    optionWhat.text = "A Spell from the Worst Book Ever";
-    newDropdown.add(optionWhat, newDropdown.options[null]);
-
-    var optionRockSize = document.createElement("option");
-    optionRockSize.text = "Do you need a rock to get bigger?";
-    newDropdown.add(optionRockSize, newDropdown.options[null]);
-    
-    var optionSpikey = document.createElement("option");
-    optionSpikey.text = "I make chairs Spikey!";
-    newDropdown.add(optionSpikey, newDropdown.options[null]);
-    
-    var optionPoisonFood = document.createElement("option");
-    optionPoisonFood.text = "I poison your food, but never an Enemy's!";
-    newDropdown.add(optionPoisonFood, newDropdown.options[null]);
-    break;
-    default: arrayOfNodes.push(document.createTextNode("HEY"));
-             arrayOfNodes.push(document.createTextNode("HEY"));
-             arrayOfNodes.push(document.createTextNode("HEY"));
-             arrayOfNodes.push(document.createTextNode("HEY"));
-  }
-
-  let textFieldTwo;
-
-  for(x in arrayOfNodes){
-    newDropDown.appendChild(x);
-  }
-
-  newDropdown.addEventListener('change', function(){
-    let selected = document.querySelector('#myDiv select');
-    textFieldTwo = selected.options[selected.selectedIndex].textContent;
-  })
-
-
-  const spells = document.querySelector("#spells")
-  const node = document.createElement("LI");
-  const spanNode = document.createElement("span");
-  spanNode.textContent = `${textField} ${textFieldTwo}`;
-  node.appendChild(spanNode);
-  spells.appendChild(node)
-  created = 1;
-  
-
-
-  //created = 1;
+    f.reset()
+  },
 }
 
-
-
-function removeDrop() {
-  var d = document.getElementById('myDiv');
-
-  var oldmenu = document.getElementById('newDropdownMenu');
-
-  d.removeChild(oldmenu);
-  created = 0;
-}
-
-
-const book = document.querySelector('select')
-book.addEventListener('change', dynamicDropdown)
-
+app.init()
