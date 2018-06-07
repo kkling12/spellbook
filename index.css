@@ -147,3 +147,17 @@ input.small {
 .level {
   color: red;
 }
+
+button.delete {
+    background-color: brown;
+    color: white;
+}
+
+.template {
+    display: none;
+}
+
+button.fav {
+    background-color: #F8BE3D;
+    color: black;
+}
