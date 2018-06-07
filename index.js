@@ -1,14 +1,15 @@
 
-let spellArray = []
-
 const app = {
+  
+  spellArray: [],
+
   init: function() {
     const form = document.querySelector('form')
     form.addEventListener('submit', (ev) => {
       ev.preventDefault()
       this.handleSubmit(ev)
       
-      console.log(spellArray)
+      console.log(this.spellArray)
     })
   },
 
@@ -38,7 +39,7 @@ const app = {
     })
 
     item.appendChild(this.deleteButton())
-    spellArray.push(spell)
+    app.spellArray.push(spell)
     return item
   },
 
@@ -64,6 +65,7 @@ const app = {
     delButton.setAttribute("value", "Delete")
     delButton.onclick = function(){
       delButton.parentNode.parentNode.removeChild(delButton.parentNode)
+      app.spellArray.splice(app.spellArray.indexOf(delButton.parentNode), 1)
     }
     return delButton
   }
