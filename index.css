@@ -1,36 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Homemade+Apple|UnifrakturCook:700');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
 
 body {
-  background: url(wood.jpeg);
+  background: url(stars.gif);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-img#skull {
-  position: absolute;
-  right: 5vw;
-  top: 5vw;
-  transform: rotate(15deg);
-  width: 25vw;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 img#quill {
   position: absolute;
-  top: calc(30vw + 40px);
-  right: 3vw;
-  width: 20vw;
+  right: 5vw;
+  top: 5vw;
+  width: 25vw;
 }
 
 h1 {
-  font-family: UnifrakturCook, serif;
+  font-family: 'Berkshire Swash', cursive;
   margin-left: 10vw;
   margin-top: 5vw;
   margin-bottom: 3vw;
-  color: rgba(255,255,255,0.4);
+  color: rgb(70, 60, 60);
   font-size: 8vw;
 }
 
@@ -118,9 +110,9 @@ main {
   margin-left: 10vw;
   height: calc(100vh - 18.5vw - 4rem);
   overflow-y: scroll;
-  font-family: "Homemade Apple", cursive;
+  font-family: 'Berkshire Swash', cursive;
   font-size: 2rem;
-  color: rgba(100, 50, 0, 0.8);
+  color: rgba(100, 50, 0);
   padding: 1.5rem 4rem;
   box-shadow: 1px 1px 15px  rgba(0,0,0,0.4);
 }
@@ -145,7 +137,6 @@ input.small {
 }
 
 .spell .name {
-  text-decoration: underline;
   width: 80%;
   overflow-x: hidden;
   text-overflow: ellipsis;
