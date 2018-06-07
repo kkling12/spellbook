@@ -36,6 +36,8 @@ const app = {
     childElements.forEach(function(el) {
       item.appendChild(el)
     })
+
+    item.appendChild(this.deleteButton())
     spellArray.push(spell)
     return item
   },
@@ -55,6 +57,17 @@ const app = {
 
     f.reset()
   },
+
+  deleteButton: function() {
+    const delButton = document.createElement("input");
+    delButton.setAttribute("type", "submit")
+    delButton.setAttribute("value", "Delete")
+    delButton.onclick = function(){
+      delButton.parentNode.parentNode.removeChild(delButton.parentNode)
+    }
+    return delButton
+  }
+
 }
 
 app.init()
