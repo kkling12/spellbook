@@ -64,7 +64,7 @@ const app = {
     delButton.setAttribute("type", "submit")
     delButton.setAttribute("value", "Delete")
     delButton.onclick = function(){
-      delButton.parentNode.parentNode.removeChild(delButton.parentNode)
+      delButton.parentNode.remove()
       app.spellArray.splice(app.spellArray.indexOf(delButton.parentNode), 1)
     }
     return delButton
