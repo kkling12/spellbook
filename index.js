@@ -30,49 +30,24 @@ const app = {
     const properties = Object.keys(spell)
 
     properties.forEach(property => {
+      if(property!="favorite"){
       const el = item.querySelector(`.${property}`)
       el.textContent = spell[property]
       el.setAttribute('title', spell[property])
+      }
     })
-
-    // // collect an array of <span> elements
-    // const childElements = properties.map((prop) => {
-    //   return this.renderProperty(prop, spell[prop])
-    // })
-
-    // const item = document.createElement('li')
-    // item.classList.add('spell')
-
-    // // append each <span> to the <li>
-    // childElements.forEach(function(el) {
-    //   item.appendChild(el)
-    // })
-
-    // const delButton = document.createElement("input");
-    // delButton.classList.add('delete')
-    // delButton.setAttribute("type", "submit")
-    // delButton.setAttribute("value", "Delete")
-
-    // delButton.addEventListener(
-    //   'click',
-    //   this.removeSpell.bind(this, spell)
-    // )
-
-    // item.appendChild(delButton)
-
-    // app.spellArray.push(spell)
-    
-    //Delete Button
     item
       .querySelector('button.delete')
       .addEventListener(
         'click',
         this.removeSpell.bind(this, spell)
       )
+
+    item.appendChild(this.favButton(spell))
+
     return item
 
     //Fav Button
-    
 
   },
 
@@ -91,6 +66,7 @@ const app = {
     const spell = {
       name: f.spellName.value,
       level: f.level.value,
+      favorite: false,
     }
 
     this.spellArray.push(spell)
@@ -99,9 +75,31 @@ const app = {
 
     const list = document.querySelector('#spells')
     list.appendChild(item)
+    
+    
 
     f.reset()
     f.spellName.focus()
+  },
+  favButton: function(spell){
+    const fav = document.createElement('button')
+    fav.textContent = "Fav"
+    fav.classList.add("fav")
+    fav.addEventListener("click", this.toggleFavorite.bind(this, spell))
+    return fav
+    
+  },
+  toggleFavorite: function(spell, ev){
+    const f = ev.target
+    const item = f.closest(".spell")
+    spell.favorite = !spell.favorite
+    if(spell.favorite){
+      item.classList.add("fav")
+    }
+    else{
+      item.classList.remove("fav")
+    }
+
   },
   
 

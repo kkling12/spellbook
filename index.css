@@ -157,7 +157,7 @@ button.delete {
     display: none;
 }
 
-button.fav {
+.fav {
     background-color: #F8BE3D;
     color: black;
 }
